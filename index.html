@@ -1,0 +1,1320 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JS4GDV6KZQ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-JS4GDV6KZQ');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CJC Minecraft Servers</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* ========== RESET & BASE ========== */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg-dark: #0a0a12;
+            --bg-card: #12121f;
+            --accent-atm: #00d4ff;
+            --accent-atm-glow: #00d4ff55;
+            --accent-pokemon: #ffcb05;
+            --accent-pokemon-glow: #ffcb0555;
+            --text: #e0e0f0;
+            --text-muted: #8888aa;
+            --success: #44ff88;
+            --danger: #ff4466;
+            --border-radius: 18px;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text);
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* ========== PARTICLES CANVAS ========== */
+        #particles-canvas {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* ========== NAVBAR ========== */
+        .navbar {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            padding: 15px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(10, 10, 18, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            padding: 10px 40px;
+            background: rgba(10, 10, 18, 0.95);
+            box-shadow: 0 4px 30px rgba(0,0,0,0.5);
+        }
+
+        .nav-logo {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 1.1rem;
+            background: linear-gradient(135deg, var(--accent-atm), var(--accent-pokemon));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px; left: 0;
+            width: 0; height: 2px;
+            background: linear-gradient(90deg, var(--accent-atm), var(--accent-pokemon));
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover { color: #fff; }
+        .nav-links a:hover::after { width: 100%; }
+
+        .nav-hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 5px;
+        }
+
+        .nav-hamburger span {
+            display: block;
+            width: 25px; height: 2px;
+            background: var(--text);
+            transition: all 0.3s;
+        }
+
+        /* ========== HERO ========== */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 120px 20px 60px;
+            z-index: 1;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 8px 20px;
+            background: linear-gradient(135deg, rgba(0,212,255,0.15), rgba(255,203,5,0.15));
+            border: 1px solid rgba(0,212,255,0.3);
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--accent-atm);
+            margin-bottom: 25px;
+            animation: pulse-glow 2s infinite;
+        }
+
+        .hero h1 {
+            font-family: 'Press Start 2P', cursive;
+            font-size: clamp(1.8rem, 5vw, 3.2rem);
+            line-height: 1.4;
+            margin-bottom: 10px;
+        }
+
+        .hero h1 .gradient-text {
+            background: linear-gradient(135deg, var(--accent-atm), #a855f7, var(--accent-pokemon));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            background-size: 200% 200%;
+            animation: gradient-shift 4s ease infinite;
+        }
+
+        .hero-subtitle {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            margin-top: 15px;
+            margin-bottom: 40px;
+            line-height: 1.7;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-atm), #6366f1);
+            color: #fff;
+            box-shadow: 0 4px 25px rgba(0,212,255,0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 35px rgba(0,212,255,0.5);
+        }
+
+        .btn-secondary {
+            background: rgba(255,255,255,0.05);
+            color: var(--text);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-3px);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-indicator i {
+            font-size: 1.5rem;
+            color: var(--text-muted);
+        }
+
+        /* ========== STATS BAR ========== */
+        .stats-bar {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            padding: 40px 20px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .stat-item:nth-child(2) { animation-delay: 0.2s; }
+        .stat-item:nth-child(3) { animation-delay: 0.4s; }
+
+        .stat-number {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 2rem;
+            background: linear-gradient(135deg, var(--accent-atm), var(--accent-pokemon));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 8px;
+        }
+
+        /* ========== SECTIONS ========== */
+        section {
+            position: relative;
+            z-index: 1;
+            padding: 80px 20px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--accent-atm);
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-family: 'Press Start 2P', cursive;
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            line-height: 1.5;
+        }
+
+        .section-subtitle {
+            color: var(--text-muted);
+            margin-top: 12px;
+            max-width: 600px;
+            margin-inline: auto;
+        }
+
+        /* ========== SERVER CARDS ========== */
+        .servers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 520px), 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .server-card {
+            position: relative;
+            background: var(--bg-card);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .server-card:hover {
+            transform: translateY(-8px);
+        }
+
+        /* ATM10 Card Theme */
+        .server-card.atm10 {
+            border: 1px solid rgba(0, 212, 255, 0.15);
+        }
+        .server-card.atm10:hover {
+            box-shadow: 0 20px 60px rgba(0, 212, 255, 0.15), 0 0 80px rgba(0, 212, 255, 0.05);
+        }
+        .server-card.atm10 .card-header {
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            border-bottom: 2px solid var(--accent-atm);
+        }
+        .server-card.atm10 .card-header::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2300d4ff' fill-opacity='0.06'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+        .server-card.atm10 .status-dot { background: var(--accent-atm); box-shadow: 0 0 10px var(--accent-atm); }
+        .server-card.atm10 .ip-box { border-color: rgba(0, 212, 255, 0.2); }
+        .server-card.atm10 .ip-box:hover { border-color: var(--accent-atm); background: rgba(0, 212, 255, 0.05); }
+        .server-card.atm10 .card-icon { color: var(--accent-atm); }
+        .server-card.atm10 .card-accent { color: var(--accent-atm); }
+        .server-card.atm10 .btn-card { background: linear-gradient(135deg, #00d4ff, #6366f1); }
+
+        /* ATMons Card Theme */
+        .server-card.atmons {
+            border: 1px solid rgba(255, 203, 5, 0.15);
+        }
+        .server-card.atmons:hover {
+            box-shadow: 0 20px 60px rgba(255, 203, 5, 0.15), 0 0 80px rgba(255, 203, 5, 0.05);
+        }
+        .server-card.atmons .card-header {
+            background: linear-gradient(135deg, #1a1a2e, #2d1b4e, #4a1942);
+            border-bottom: 2px solid var(--accent-pokemon);
+        }
+        .server-card.atmons .card-header::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffcb05' fill-opacity='0.06'%3E%3Ccircle cx='40' cy='40' r='8'/%3E%3Ccircle cx='40' cy='40' r='15' stroke='%23ffcb05' stroke-width='1' fill='none'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+        .server-card.atmons .status-dot { background: var(--accent-pokemon); box-shadow: 0 0 10px var(--accent-pokemon); }
+        .server-card.atmons .ip-box { border-color: rgba(255, 203, 5, 0.2); }
+        .server-card.atmons .ip-box:hover { border-color: var(--accent-pokemon); background: rgba(255, 203, 5, 0.05); }
+        .server-card.atmons .card-icon { color: var(--accent-pokemon); }
+        .server-card.atmons .card-accent { color: var(--accent-pokemon); }
+        .server-card.atmons .btn-card { background: linear-gradient(135deg, #ffcb05, #ff6b35); }
+
+        .card-header {
+            position: relative;
+            padding: 35px 30px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .card-icon-wrapper {
+            width: 70px; height: 70px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0,0,0,0.3);
+            font-size: 2rem;
+            flex-shrink: 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .card-header-info {
+            position: relative;
+            z-index: 1;
+        }
+
+        .card-header-info h3 {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 1rem;
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+
+        .card-status {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.8rem;
+            color: var(--success);
+        }
+
+        .status-dot {
+            width: 8px; height: 8px;
+            border-radius: 50%;
+            animation: pulse-dot 2s infinite;
+        }
+
+        .card-body {
+            padding: 30px;
+        }
+
+        /* IP Boxes */
+        .ip-section {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+
+        .ip-box {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 18px;
+            background: rgba(0,0,0,0.2);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s;
+            gap: 10px;
+        }
+
+        .ip-label {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            white-space: nowrap;
+        }
+
+        .ip-value {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.7rem;
+            color: #fff;
+            letter-spacing: 1px;
+        }
+
+        .ip-copy {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            transition: color 0.3s;
+            flex-shrink: 0;
+        }
+
+        .ip-box:hover .ip-copy { color: #fff; }
+
+        .ip-box.copied .ip-copy { color: var(--success); }
+
+        /* Info Sections inside card */
+        .card-section {
+            margin-bottom: 20px;
+        }
+
+        .card-section-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .card-section-title i {
+            font-size: 0.85rem;
+        }
+
+        .card-section ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .card-section li {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            padding-left: 20px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .card-section li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .server-card.atm10 .card-section li::before { color: var(--accent-atm); }
+        .server-card.atmons .card-section li::before { color: var(--accent-pokemon); }
+
+        .highlight { color: #fff; font-weight: 600; }
+        .text-danger { color: var(--danger); font-weight: 600; }
+        .text-success { color: var(--success); font-weight: 600; }
+
+        .card-footer {
+            padding: 20px 30px 30px;
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .btn-card {
+            flex: 1;
+            min-width: 180px;
+            padding: 13px 20px;
+            border-radius: 12px;
+            color: #fff;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-decoration: none;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .btn-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+        }
+
+        /* ========== RULES SECTION ========== */
+        .rules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .rule-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 14px;
+            padding: 25px;
+            transition: all 0.3s;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .rule-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .rule-card:hover {
+            border-color: rgba(0,212,255,0.2);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .rule-icon {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .rule-card h4 {
+            font-size: 1rem;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .rule-card p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* ========== HOW TO JOIN ========== */
+        .steps-container {
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .steps-container::before {
+            content: '';
+            position: absolute;
+            left: 30px;
+            top: 0; bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--accent-atm), var(--accent-pokemon));
+            opacity: 0.3;
+        }
+
+        .step {
+            display: flex;
+            gap: 25px;
+            margin-bottom: 35px;
+            opacity: 0;
+            transform: translateX(-20px);
+            transition: all 0.5s ease;
+        }
+
+        .step.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .step-number {
+            width: 60px; height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent-atm), #6366f1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+            box-shadow: 0 4px 20px rgba(0,212,255,0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        .step-content h4 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .step-content p {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .step-content a {
+            color: var(--accent-atm);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .step-content a:hover { color: #fff; }
+
+        /* ========== FOOTER ========== */
+        footer {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .footer-logo {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.85rem;
+            background: linear-gradient(135deg, var(--accent-atm), var(--accent-pokemon));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 12px;
+        }
+
+        footer p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .footer-hearts {
+            margin-top: 10px;
+            font-size: 0.85rem;
+        }
+
+        /* ========== ANIMATIONS ========== */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes gradient-shift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 5px rgba(0,212,255,0.2); }
+            50% { box-shadow: 0 0 20px rgba(0,212,255,0.4); }
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes tilt-card {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(0.5deg); }
+            75% { transform: rotate(-0.5deg); }
+        }
+
+        .float-anim { animation: float 6s ease-in-out infinite; }
+
+        /* ========== COPY TOAST ========== */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            border: 1px solid rgba(0,212,255,0.3);
+            padding: 14px 28px;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            z-index: 1000;
+            transition: transform 0.4s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+        }
+
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .toast i { color: var(--success); }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .nav-hamburger { display: flex; }
+
+            .nav-links.active {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0; right: 0;
+                background: rgba(10,10,18,0.98);
+                padding: 20px 40px;
+                gap: 15px;
+                border-bottom: 1px solid rgba(255,255,255,0.05);
+            }
+
+            .hero h1 { font-size: 1.5rem; }
+
+            .stats-bar { gap: 30px; }
+            .stat-number { font-size: 1.4rem; }
+
+            .servers-grid { gap: 25px; }
+
+            .card-header { padding: 25px 20px; flex-direction: column; text-align: center; }
+            .card-body { padding: 20px; }
+            .card-footer { padding: 15px 20px 25px; }
+
+            .ip-box { flex-direction: column; gap: 6px; text-align: center; }
+
+            .steps-container::before { left: 20px; }
+            .step-number { width: 40px; height: 40px; font-size: 0.7rem; }
+        }
+
+        /* ========== REVEAL ANIMATION ========== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ========== GLOW EFFECTS ========== */
+        .glow-line {
+            width: 80px; height: 3px;
+            margin: 15px auto 0;
+            border-radius: 10px;
+            background: linear-gradient(90deg, var(--accent-atm), var(--accent-pokemon));
+        }
+
+        /* Modpack version badge */
+        .version-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(255,255,255,0.08);
+            border-radius: 20px;
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            margin-top: 6px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Particles Background -->
+<canvas id="particles-canvas"></canvas>
+
+<!-- Navbar -->
+<nav class="navbar" id="navbar">
+    <div class="nav-logo">⛏ CJC</div>
+    <ul class="nav-links" id="navLinks">
+        <li><a href="#servers">Servidores</a></li>
+        <li><a href="#rules">Regras</a></li>
+        <li><a href="#howto">Como Entrar</a></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+    </button>
+</nav>
+
+<!-- Hero -->
+<section class="hero" id="hero">
+    <div class="hero-content">
+        <div class="hero-badge">🌟 Comunidade Minecraft</div>
+        <h1>
+            <span class="gradient-text">CJC Minecraft</span><br>Servers
+        </h1>
+        <p class="hero-subtitle">
+            Servidores dedicados hospedados em <a href="https://audicomtelecom.com.br" target="_blank" style="color: var(--accent-atm); text-decoration: none; font-weight: 700; border-bottom: 1px dashed var(--accent-atm); transition: color 0.3s;">contêineres refrigerados 24h da Audicom Telecom</a>.<br>
+            Zero quedas — apenas paradas programadas para upgrades do servidor.<br>
+            Aventure-se com amigos em mundos cheios de mods, Pokémon e muito mais!
+        </p>
+        <div class="hero-buttons">
+            <a href="#servers" class="btn btn-primary">
+                <i class="fas fa-gamepad"></i> Ver Servidores
+            </a>
+            <a href="#howto" class="btn btn-secondary">
+                <i class="fas fa-book-open"></i> Como Entrar
+            </a>
+        </div>
+    </div>
+    <div class="scroll-indicator">
+        <i class="fas fa-chevron-down"></i>
+    </div>
+</section>
+
+<!-- Stats -->
+<div class="stats-bar">
+    <div class="stat-item">
+        <div class="stat-number">2</div>
+        <div class="stat-label">Servidores Online</div>
+    </div>
+    <div class="stat-item">
+        <div class="stat-number">400+</div>
+        <div class="stat-label">Mods Disponíveis</div>
+    </div>
+    <div class="stat-item">
+        <div class="stat-number">24/7</div>
+        <div class="stat-label">Uptime</div>
+    </div>
+    <a href="https://audicomtelecom.com.br" target="_blank" class="stat-item" style="text-decoration: none; color: inherit; transition: transform 0.3s;">
+        <div class="stat-number">❄️</div>
+        <div class="stat-label">Audicom Telecom</div>
+    </a>
+</div>
+
+<!-- Servers Section -->
+<section id="servers">
+    <div class="section-header reveal">
+        <span class="section-tag">🎮 Nossos Servidores</span>
+        <h2 class="section-title">Escolha sua Aventura</h2>
+        <p class="section-subtitle">Cada servidor possui seu próprio mundo e experiência única.</p>
+        <p class="section-subtitle" style="margin-top: 10px; font-size: 0.82rem;">
+            ❄️ Hospedados em <a href="https://audicomtelecom.com.br" target="_blank" style="color: var(--accent-atm); text-decoration: none; font-weight: 700; border-bottom: 1px dashed var(--accent-atm);">contêineres refrigerados da Audicom Telecom</a> — rodando <strong style="color: var(--success)">24 horas sem quedas</strong>, com paradas apenas para upgrades do próprio servidor Minecraft.
+        </p>
+        <div class="glow-line"></div>
+    </div>
+
+    <div class="servers-grid">
+
+        <!-- ATM10 Card -->
+        <div class="server-card atm10 reveal">
+            <div class="card-header">
+                <div class="card-icon-wrapper float-anim">
+                    <svg class="card-icon-svg" viewBox="0 0 64 64" width="48" height="48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Robot Head -->
+                        <rect x="14" y="18" width="36" height="30" rx="6" fill="#00d4ff" opacity="0.15" stroke="#00d4ff" stroke-width="2"/>
+                        <!-- Antenna -->
+                        <line x1="32" y1="18" x2="32" y2="8" stroke="#00d4ff" stroke-width="2" stroke-linecap="round"/>
+                        <circle cx="32" cy="6" r="3" fill="#00d4ff">
+                            <animate attributeName="opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite"/>
+                        </circle>
+                        <!-- Eyes -->
+                        <circle cx="24" cy="30" r="4" fill="#00d4ff">
+                            <animate attributeName="r" values="4;3;4" dur="3s" repeatCount="indefinite"/>
+                        </circle>
+                        <circle cx="40" cy="30" r="4" fill="#00d4ff">
+                            <animate attributeName="r" values="4;3;4" dur="3s" repeatCount="indefinite"/>
+                        </circle>
+                        <!-- Mouth -->
+                        <rect x="24" y="38" width="16" height="3" rx="1.5" fill="#00d4ff" opacity="0.7"/>
+                        <!-- Ears -->
+                        <rect x="6" y="26" width="8" height="12" rx="3" fill="#00d4ff" opacity="0.3" stroke="#00d4ff" stroke-width="1.5"/>
+                        <rect x="50" y="26" width="8" height="12" rx="3" fill="#00d4ff" opacity="0.3" stroke="#00d4ff" stroke-width="1.5"/>
+                        <!-- Body -->
+                        <rect x="22" y="48" width="20" height="10" rx="4" fill="#00d4ff" opacity="0.15" stroke="#00d4ff" stroke-width="1.5"/>
+                        <line x1="28" y1="51" x2="28" y2="55" stroke="#00d4ff" stroke-width="1.5" stroke-linecap="round"/>
+                        <line x1="32" y1="51" x2="32" y2="55" stroke="#00d4ff" stroke-width="1.5" stroke-linecap="round"/>
+                        <line x1="36" y1="51" x2="36" y2="55" stroke="#00d4ff" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <div class="card-header-info">
+                    <h3>ATM10</h3>
+                    <p style="font-size:0.78rem; color: rgba(255,255,255,0.6); margin-bottom: 6px;">All The Mods 10 - Todos os Mods!</p>
+                    <div class="card-status">
+                        <span class="status-dot"></span> Online
+                    </div>
+                    <span class="version-badge">📦 Versão 5.1</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="ip-section">
+                    <div class="ip-box" onclick="copyIP(this, '45.237.201.1')">
+                        <span class="ip-label">IP do Servidor</span>
+                        <span class="ip-value">45.237.201.1</span>
+                        <span class="ip-copy"><i class="far fa-copy"></i></span>
+                    </div>
+                </div>
+                <div class="card-section">
+                    <div class="card-section-title card-accent">
+                        <i class="fas fa-shield-alt"></i> Dicas de Proteção
+                    </div>
+                    <ul>
+                        <li>Aperte <span class="highlight">M</span> dentro do jogo, depois <span class="highlight">C</span></li>
+                        <li>Selecione sua base para <span class="text-success">proteger</span> de outros players</li>
+                        <li>Quer dar acesso para alguém? Aperte <span class="highlight">E</span>, no canto superior direito clique nos <span class="highlight">3 bonecos</span> e crie um time</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card-footer">
+                <a href="https://www.curseforge.com/minecraft/modpacks/all-the-mods-10/files/7223056" target="_blank" class="btn-card">
+                    <i class="fas fa-download"></i> Baixar Modpack
+                </a>
+            </div>
+        </div>
+
+        <!-- ATMons Card -->
+        <div class="server-card atmons reveal">
+            <div class="card-header">
+                <div class="card-icon-wrapper float-anim">
+                    <svg class="card-icon-svg" viewBox="0 0 64 64" width="48" height="48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Pikachu Body -->
+                        <ellipse cx="32" cy="38" rx="16" ry="18" fill="#ffcb05" />
+                        <!-- Left Ear -->
+                        <path d="M16 22 L10 4 L22 16 Z" fill="#ffcb05" />
+                        <path d="M12 6 L10 4 L14 10 Z" fill="#222" />
+                        <!-- Right Ear -->
+                        <path d="M48 22 L54 4 L42 16 Z" fill="#ffcb05" />
+                        <path d="M52 6 L54 4 L50 10 Z" fill="#222" />
+                        <!-- Eyes -->
+                        <circle cx="25" cy="32" r="3.5" fill="#222" />
+                        <circle cx="39" cy="32" r="3.5" fill="#222" />
+                        <circle cx="26" cy="31" r="1.2" fill="#fff" />
+                        <circle cx="40" cy="31" r="1.2" fill="#fff" />
+                        <!-- Cheeks -->
+                        <circle cx="19" cy="38" r="4" fill="#ff6b35" opacity="0.6">
+                            <animate attributeName="opacity" values="0.6;0.3;0.6" dur="2s" repeatCount="indefinite"/>
+                        </circle>
+                        <circle cx="45" cy="38" r="4" fill="#ff6b35" opacity="0.6">
+                            <animate attributeName="opacity" values="0.6;0.3;0.6" dur="2s" repeatCount="indefinite"/>
+                        </circle>
+                        <!-- Mouth -->
+                        <path d="M28 41 Q32 45 36 41" stroke="#222" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                        <!-- Nose -->
+                        <ellipse cx="32" cy="36" rx="1" ry="0.7" fill="#222" />
+                        <!-- Tail (lightning bolt) -->
+                        <path d="M48 38 L54 28 L50 30 L56 18 L49 28 L53 26 L48 34 Z" fill="#ffcb05" stroke="#e6b800" stroke-width="0.5"/>
+                    </svg>
+                </div>
+                <div class="card-header-info">
+                    <h3>ATMons</h3>
+                    <p style="font-size:0.78rem; color: rgba(255,255,255,0.6); margin-bottom: 6px;">All The Mons - Pokémon Edition!</p>
+                    <div class="card-status">
+                        <span class="status-dot"></span> Online
+                    </div>
+                    <span class="version-badge">📦 Versão 0.10.10</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="ip-section">
+                    <div class="ip-box" onclick="copyIP(this, '45.237.201.1:25566')">
+                        <span class="ip-label">IP do Servidor</span>
+                        <span class="ip-value">45.237.201.1:25566</span>
+                        <span class="ip-copy"><i class="far fa-copy"></i></span>
+                    </div>
+                </div>
+                <div class="card-section">
+                    <div class="card-section-title card-accent">
+                        <i class="fas fa-shield-alt"></i> Dicas de Proteção
+                    </div>
+                    <ul>
+                        <li>Aperte <span class="highlight">M</span> para acessar o menu de Pokémons</li>
+                        <li>Capture, treine e batalhe com seus Pokémon favoritos!</li>
+                        <li>Explore o mundo para encontrar <span class="text-success">Pokémon raros</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card-footer">
+                <a href="https://www.curseforge.com/minecraft/modpacks/all-the-mons/files/7582446" target="_blank" class="btn-card">
+                    <i class="fas fa-download"></i> Baixar Modpack
+                </a>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- Rules Section -->
+<section id="rules">
+    <div class="section-header reveal">
+        <span class="section-tag">📜 Regras & Informações</span>
+        <h2 class="section-title">Jogue com Respeito</h2>
+        <p class="section-subtitle">Algumas regras simples para manter a diversão de todos.</p>
+        <div class="glow-line"></div>
+    </div>
+
+    <div class="rules-grid">
+        <div class="rule-card reveal">
+            <span class="rule-icon">✅</span>
+            <h4>Quase Tudo Liberado</h4>
+            <p>Liberdade para explorar e construir, mas com limites para manter a diversão de todos no servidor.</p>
+        </div>
+        <div class="rule-card reveal">
+            <span class="rule-icon">🔐</span>
+            <h4>Minecraft Original</h4>
+            <p>Apenas contas originais do Minecraft são permitidas, garantindo segurança para todos os jogadores.</p>
+        </div>
+        <div class="rule-card reveal">
+            <span class="rule-icon">⚔️</span>
+            <h4>PVP Permitido</h4>
+            <p>Batalhando, pegando itens e se divertindo! Mas jogue com respeito para não estragar a experiência dos outros.</p>
+        </div>
+        <div class="rule-card reveal">
+            <span class="rule-icon">🚫</span>
+            <h4>Hacks Proibidos</h4>
+            <p>Qualquer uso de hacks, cheats ou exploits resultará em banimento imediato. Jogue limpo!</p>
+        </div>
+        <div class="rule-card reveal">
+            <span class="rule-icon">👥</span>
+            <h4>Traga Amigos</h4>
+            <p>Pode chamar amigos de confiança para jogar junto! Quanto mais, melhor a diversão. 💖</p>
+        </div>
+        <div class="rule-card reveal">
+            <span class="rule-icon">💌</span>
+            <h4>Nickname Obrigatório</h4>
+            <p>Para entrar no servidor, você precisa passar seu nickname antes. Entre em contato!</p>
+        </div>
+    </div>
+</section>
+
+<!-- How To Join Section -->
+<section id="howto">
+    <div class="section-header reveal">
+        <span class="section-tag">🚀 Tutorial</span>
+        <h2 class="section-title">Como Entrar</h2>
+        <p class="section-subtitle">Siga os passos abaixo e comece a jogar em minutos!</p>
+        <div class="glow-line"></div>
+    </div>
+
+    <div class="steps-container">
+        <div class="step reveal">
+            <div class="step-number">1</div>
+            <div class="step-content">
+                <h4>Baixe o Modpack</h4>
+                <p>
+                    Baixe o modpack desejado pelo <a href="https://www.curseforge.com/minecraft/modpacks/all-the-mods-10/files/7223056" target="_blank">CurseForge (ATM10)</a>
+                    ou <a href="https://www.curseforge.com/minecraft/modpacks/all-the-mons/files/7582446" target="_blank">CurseForge (ATMons)</a>.
+                    Você também pode encontrá-los buscando na internet.
+                </p>
+            </div>
+        </div>
+        <div class="step reveal">
+            <div class="step-number">2</div>
+            <div class="step-content">
+                <h4>Instale e Abra o Jogo</h4>
+                <p>Instale o modpack no seu launcher favorito (CurseForge, ATLauncher, etc.) e abra o Minecraft com o modpack carregado.</p>
+            </div>
+        </div>
+        <div class="step reveal">
+            <div class="step-number">3</div>
+            <div class="step-content">
+                <h4>Envie seu Nickname</h4>
+                <p>
+                    <strong style="color: var(--accent-pokemon);">IMPORTANTE:</strong> Antes de conectar, me envie seu <strong>nickname</strong> do Minecraft para eu liberar o acesso! 💌
+                </p>
+            </div>
+        </div>
+        <div class="step reveal">
+            <div class="step-number">4</div>
+            <div class="step-content">
+                <h4>Conecte-se pelo IP</h4>
+                <p>No menu Multiplayer, adicione o servidor com o IP correspondente e entre para se divertir! 🎮</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="footer-logo">⛏ CJC Minecraft Servers</div>
+    <p>Servidores dedicados para diversão com amigos.</p>
+    <div class="footer-hearts">💜 Feito com amor para a comunidade 💜</div>
+</footer>
+
+<!-- Copy Toast -->
+<div class="toast" id="toast">
+    <i class="fas fa-check-circle"></i>
+    <span>IP copiado para a área de transferência!</span>
+</div>
+
+<script>
+    // ========== PARTICLES ==========
+    const canvas = document.getElementById('particles-canvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    let mouse = { x: null, y: null };
+
+    function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    class Particle {
+        constructor() {
+            this.reset();
+        }
+        reset() {
+            this.x = Math.random() * canvas.width;
+            this.y = Math.random() * canvas.height;
+            this.size = Math.random() * 2 + 0.5;
+            this.speedX = (Math.random() - 0.5) * 0.5;
+            this.speedY = (Math.random() - 0.5) * 0.5;
+            this.opacity = Math.random() * 0.5 + 0.1;
+            this.color = Math.random() > 0.5 ? '0, 212, 255' : '255, 203, 5';
+        }
+        update() {
+            this.x += this.speedX;
+            this.y += this.speedY;
+            if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+            if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+
+            // Mouse interaction
+            if (mouse.x !== null) {
+                const dx = this.x - mouse.x;
+                const dy = this.y - mouse.y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                if (dist < 120) {
+                    this.x += dx * 0.01;
+                    this.y += dy * 0.01;
+                }
+            }
+        }
+        draw() {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(${this.color}, ${this.opacity})`;
+            ctx.fill();
+        }
+    }
+
+    function initParticles() {
+        const count = Math.min(80, Math.floor((canvas.width * canvas.height) / 15000));
+        particles = [];
+        for (let i = 0; i < count; i++) {
+            particles.push(new Particle());
+        }
+    }
+    initParticles();
+
+    function connectParticles() {
+        for (let i = 0; i < particles.length; i++) {
+            for (let j = i + 1; j < particles.length; j++) {
+                const dx = particles[i].x - particles[j].x;
+                const dy = particles[i].y - particles[j].y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                if (dist < 150) {
+                    ctx.beginPath();
+                    ctx.strokeStyle = `rgba(100, 100, 200, ${0.06 * (1 - dist / 150)})`;
+                    ctx.lineWidth = 0.5;
+                    ctx.moveTo(particles[i].x, particles[i].y);
+                    ctx.lineTo(particles[j].x, particles[j].y);
+                    ctx.stroke();
+                }
+            }
+        }
+    }
+
+    function animateParticles() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach(p => { p.update(); p.draw(); });
+        connectParticles();
+        requestAnimationFrame(animateParticles);
+    }
+    animateParticles();
+
+    window.addEventListener('mousemove', e => {
+        mouse.x = e.clientX;
+        mouse.y = e.clientY;
+    });
+
+    // ========== NAVBAR SCROLL ==========
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+        navbar.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // ========== MOBILE MENU ==========
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+    });
+    navLinks.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => navLinks.classList.remove('active'));
+    });
+
+    // ========== COPY IP ==========
+    function copyIP(element, ip) {
+        navigator.clipboard.writeText(ip).then(() => {
+            element.classList.add('copied');
+            const toast = document.getElementById('toast');
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+                element.classList.remove('copied');
+            }, 2500);
+        });
+    }
+
+    // ========== SCROLL REVEAL ==========
+    const revealElements = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    revealElements.forEach(el => revealObserver.observe(el));
+
+    // ========== SMOOTH SCROLL FOR ANCHOR LINKS ==========
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    });
+
+    // ========== TILT EFFECT ON CARDS ==========
+    document.querySelectorAll('.server-card').forEach(card => {
+        card.addEventListener('mousemove', e => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            const rotateX = (y - centerY) / 30;
+            const rotateY = (centerX - x) / 30;
+            card.style.transform = `translateY(-8px) perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        });
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'translateY(0) perspective(1000px) rotateX(0) rotateY(0)';
+        });
+    });
+</script>
+<script src="https://cdn.jsdelivr.net/gh/davicjc/FooterDavicjc@main/footer_cjc.js"></script>
+</body>
+</html>
